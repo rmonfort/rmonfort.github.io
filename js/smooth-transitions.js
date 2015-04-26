@@ -1,9 +1,12 @@
-$(".nav-link").click(function(e) {
-    e.preventDefault();
-    var link = $(this);
-    var href = link.attr("href");
-    $("html,body").animate({
-        scrollTop: $(href).offset().top - 80
-    }, 500);
-    link.closest(".navbar").find(".navbar-toggle:not(.collapsed)").click();
+$(document).ready(function(){
+	$('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 900, 'swing');
+	});
 });
